@@ -14,7 +14,7 @@ router = APIRouter(tags=["Url Shortener"])
 async def shorten(urlCreate: UrlCreate):
     with Session(engine) as session:
         hash = shortuuid.ShortUUID().random(length=6)
-        new_url = Url(url=str(urlCreate.url), hash=hash)
+        new_url = Url(user_id=urlCreate.user_id, url=str(urlCreate.url), hash=hash)
         session.add(new_url)
         session.commit()
         session.refresh(new_url)
