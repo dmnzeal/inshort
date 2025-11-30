@@ -17,7 +17,6 @@ class Url(UrlBase, table=True):
 
 class UrlCreate(UrlBase):
     url: HttpUrl
-    user_id: int
 
 
 class UrlRead(UrlBase):
