@@ -1,0 +1,32 @@
+.wrapper {
+  max-width: 384px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+h1,
+p {
+  align-self: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+input,
+button {
+  padding: 1rem;
+  border: 2px solid #f0f0f0;
+  border-radius: 2px;
+}
+input {
+  background-color: #fff;
+}
+button {
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 1rem #fafafa;
+}
