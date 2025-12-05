@@ -1,3 +1,6 @@
+<script setup lang="ts">
+const isLoggedIn = localStorage.getItem('access_token') ? true : false;
+</script>
 <template>
   <header class="header">
     <div class="container">
@@ -5,8 +8,12 @@
         <router-link class="link" to="/">InShort</router-link>
       </div>
       <nav class="menu">
-        <!-- <router-link class="link" to="/dashboard">Главная</router-link> -->
-        <router-link class="link" to="/login">Вход</router-link>
+        <router-link v-if="!isLoggedIn" class="link" to="/login"
+          >Вход</router-link
+        >
+        <router-link v-if="isLoggedIn" class="link" to="/dashboard"
+          >Главная</router-link
+        >
       </nav>
     </div>
   </header>
