@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import api from '@/services/api';
+import { useAuthStore } from '@/stores/auth';
+import router from '@/router';
 
 const username = ref('');
 const password = ref('');
@@ -9,11 +10,9 @@ const message = ref('');
 
 async function register() {
   try {
-    const res = await api.post('/users/login', {
-      username: username.value,
-      password: password.value,
-    });
-    message.value = res.data;
+    const auth = useAuthStore();
+    await auth.login(username.value, password.value);
+    router.push('/');
   } catch {
     message.value = 'Что-то пошло не так';
   }
